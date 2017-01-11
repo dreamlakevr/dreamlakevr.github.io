@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>360&deg; Image Gallery</title>
+    <title>Dreamlake 360&deg;</title>
     <meta name="description" content="360&deg; Image Gallery - A-Frame">
     <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="components/set-image.js"></script>
   </head>
   <body>
@@ -44,7 +45,8 @@
         
             <img id="my-texture" src="https://i.imgur.com/mYmmbrp.jpg">
             <img id="minion-mtl" src="/obj/minion.mtl">
-
+             <img id="skyTexture"  src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+           
       </a-assets>
         
 <!--
@@ -52,10 +54,11 @@
 <a-entity light="type: ambient; color: #BBB"></a-entity>
 <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
 -->
-        <audio src="/audio/hehehe.mp3" autoplay="true" loop="true" ></audio>  
+     
         
       <!-- 360-degree image. -->
-              <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#dreamlake"></a-sky>
+<!--              <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#dreamlake"></a-sky>-->
+              <a-sky src="#skyTexture"></a-sky>
 
 
           <!-- Dreamlake Logo. -->
@@ -71,8 +74,12 @@
               <a-animation attribute="position" to="0 0 -8" direction="alternate" dur="2000"  repeat="indefinite">
               </a-animation>
         </a-obj-model> 
+        <audio src="/audio/hehehe.mp3" autoplay="true" loop="true" ></audio>  
         
-
+        <a-entity bmfont-text="text: DREAMLAKE; fnt:/fonts/futura.fnt; fntImage:/fonts/futura.png;  color: #BBB" position="-7 0 -20" scale="20 20 20">
+</a-entity>
+        
+        <a-entity bmfont-text="text: Hello World; color: #BBB" position="-7 0 -20" scale="20 20 20"></a-entity>
 <!--        <a-entity position="0 -5 0" rotation="-90 0 0" scale="10 10 10" geometry="primitive: plane" material="src: #my-texture"></a-entity>-->
 
 
