@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="components/set-image.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-box template="src: #link" data-src="#s1" data-thumb="#s1-thumb" color="red" position="-.5 -3 .9" rotation="0 45 45" scale=".1 .1 .1"></a-box>
+        <a-box template="src: #link" data-src="#s2" data-thumb="#s2-thumb" color="blue" position="-.4 -3 -.1" rotation="0 45 45" scale=".1 .1 .1"></a-box>
+        <a-box template="src: #link" data-src="#s3" data-thumb="#s3-thumb" color="yellow" position=".3 -3 .2" rotation="0 45 45" scale=".1 .1 .1"></a-box>
+     
+        <a-assets>
+                  
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+          
+            <img id="s1" crossorigin="anonymous" src="https://s23.postimg.org/4lt2rje1n/Wed_Jan_11_11_59_25_2017.png">
+            <img id="s2" crossorigin="anonymous" src="/360/images/s2.png">
+            <img id="s3" crossorigin="anonymous" src="/360/images/s3.png">
+             
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: box; height: 0.9; width: 0.9"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: .9 .9 .9"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1.2"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1.2"
+            event-set__4="_event: mouseleave; scale: .9 .9 .9"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+
+      </a-assets>
+
+      <!-- 360-degree image. -->
+              <a-sky id="image-360" radius="32" src="#bridge"></a-sky>
+
+        
+        <!--     SB map-->
+        <a-obj-model position="0 -4 -0" rotation="0 250 0" color="" scale=".5 .5 .5" src="/obj/Studiobox.obj" mtl="#logo-mtl">
+                </a-obj-model>
+   
+        
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls wasd-controls>
+          
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          raycaster="objects: .link">
+          </a-cursor>
+          
+      </a-entity>
+        
+    </a-scene>
+      
+  </body>
+</html>
+
