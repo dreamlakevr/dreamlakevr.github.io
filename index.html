@@ -10,11 +10,12 @@
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     <script src="components/set-image.js"></script>
   </head>
   <body>
-   
-    <a-scene>
+  
+    <a-scene keyboard-shortcuts="enterVR: false">
            <a href="studiobox.html">studiobox</a>
       <a href="porto.html">porto</a>
 <!--      <a-box href="porto.html" template="src: #link" data-src="#porto" data-thumb="#porto-thumb" color="red" position="1 0 -.3" rotation="0 45 45" scale=".1 .1 .1"></a-box>-->
@@ -42,6 +43,8 @@
             set-image="on: click; target: #image-360; src: ${src}"
             sound="on: click; src: #click-sound"></a-entity>
         </script>
+            
+            
         
             <img id="my-texture" src="https://i.imgur.com/mYmmbrp.jpg">
             <img id="minion-mtl" src="/obj/minion.mtl">
@@ -68,11 +71,13 @@
         </a-obj-model>  
         
         <!-- Minion . -->
-          <a-obj-model position="0 0 -10" rotation="0 0 0"  scale="10 10 10" src="/obj/minion.obj"  mtl="#minion-mtl">
+          <a-obj-model position="0 0 -10" rotation="0 0 0"  scale="10 10 10" src="/obj/minion.obj" mtl="#minion-mtl">
+<!--  alongpath="path:0,0,-10 10,0,0 0,0,10 -10,0,0; closed:true; dur:5000; delay:128; inspector:false; direction:alternate; repeat:indefinite;-->
               <a-animation attribute="position" to="0 0 -8" direction="alternate" dur="2000"  repeat="indefinite">
               </a-animation>
+
         </a-obj-model> 
-        <audio src="/audio/hehehe.mp3" autoplay="true" loop="true" ></audio>  
+<!--        <audio src="/audio/hehehe.mp3" autoplay="true" loop="true" ></audio>  -->
         
         <a-entity bmfont-text="text: DREAMLAKE; fnt:/fonts/futura.fnt; fntImage:/fonts/futura.png;  color: #fff" position="-40 50 -50" rotation="0 0 0"  scale="100 100 100">
 </a-entity>
