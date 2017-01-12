@@ -9,6 +9,7 @@
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+      <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="components/set-image.js"></script>
   </head>
   <body>
@@ -44,13 +45,20 @@
       <!-- 360-degree image. -->
               <a-sky id="image-360" radius="32" src="#bridge"></a-sky>
 
+         <!--Home-->
+            <a-entity rotation="0 0 0" position="0 1 0" rotation="-90 0 0" scale=".3 .3 .3">
+                <a-entity  data-src="#sb" data-thumb="#sb" bmfont-text="text: Back to home!!; color: #fff;" position="-.55 -.3 0" scale="1 1 1"></a-entity>
+                
+                <a-obj-model template="src: #link" onClick="location.href='index.html'" color="#8bc34a" position="0 0 0" rotation="0 0 0"  scale="1 1 1"  src="/obj/DL-Logo-Welded-50cm.obj"  mtl="#logo-mtl"></a-obj-model>  
+            </a-entity> 
+        
 <!--        Porto map-->
-        <a-obj-model position="0 -4 -0" rotation="0 250 0" color="" scale="1 1 1" src="/obj/porto.obj" mtl="#logo-mtl">
+        <a-obj-model position="0 -4 -0" rotation="0 250 0" color="" scale="1 10 1" src="/obj/porto-holo.obj" material="src:/textures/hologram.png">
                
         </a-obj-model>
         <a-entity
                   geometry="primitive: box; height: .1; width: 6; depth: 6;"
-                  material="shader: flat; color:green;"
+                  material="shader: flat; color:teal;"
                   position="0 -4.3 0"
                   rotation="180 0 0;"
                   >
