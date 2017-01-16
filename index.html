@@ -40,6 +40,15 @@
                 </a-sphere>
             </a-entity>
         
+            <!-- livestream -->
+            <a-entity rotation="0 90 0" position="-1.5 1.2 1.2"  scale=".3 .3 .3">
+                <a-entity bmfont-text="text: livestream!; color: #fff;" position="-.15 0 0" scale="1 1 1"></a-entity>
+                <a-sphere onClick="location.href='livestream.html'"  template="src: #link" data-src="#sb" data-thumb="#sb" src="/360/images/dl.jpg" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
+                    <a-animation attribute="rotation" dur="1000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+                </a-sphere>
+            </a-entity>
+        
+        
             <!--Home-->
             <a-entity rotation="0 0 0" position="0 1 0" rotation="-90 0 0" scale=".3 .3 .3">
                 <a-entity  data-src="#sb" data-thumb="#sb" bmfont-text="text: Back to home!!; color: #fff;" position="-.55 -.3 0" scale="1 1 1"></a-entity>
@@ -70,9 +79,11 @@
         </script>
          
            
+           
+
             <img id="my-texture" src="https://i.imgur.com/mYmmbrp.jpg">
             <img id="minion-mtl" src="/obj/minion.mtl">
-            <img id="skyTexture"  src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+            <img id="skyTexture"  src="/360/images/dl.jpg">
            
       </a-assets>
         
