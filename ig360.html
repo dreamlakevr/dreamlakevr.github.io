@@ -10,35 +10,31 @@
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
     
-    <script src="components/set-image.js"></script>
-      
-    <link rel="stylesheet" type="text/css" href="style.css">
+       
   </head>
   <body>
-   
-      
-      <a-scene embedded class="mobileviewer">
+    <a-scene>
         <a-assets>
             <img id="bridge" crossorigin="anonymous" src="/360/images/checkermap.jpg">
-          </a-assets>
+        <assets>
 
       <!-- 360-degree image. -->
-          <a-sky id="image-360" src="#bridge"></a-sky>
-          
+              <a-sky id="image-360" radius="32" src="#bridge"></a-sky>
+
       <!-- Camera + cursor. -->
-        <a-entity camera="userHeight: 1.8" look-controls>
-            <a-cursor id="cursor"
-              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-              event-set__1="_event: mouseenter; color: springgreen"
-              event-set__2="_event: mouseleave; color: black"
-              raycaster="objects: .link">
-            </a-cursor>
-        </a-entity>
+      <a-entity camera look-controls wasd-controls>
+          
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          raycaster="objects: .link">
+          </a-cursor>
+          
+      </a-entity>
         
     </a-scene>
-      
-     
       
   </body>
 </html>
