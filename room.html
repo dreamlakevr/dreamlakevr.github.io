@@ -23,18 +23,28 @@
           
             
             <!-- 360 images-->
-            <img id="img1" crossorigin="anonymous" src="/360/images/checkermap.jpg">
+            <img id="sky" crossorigin="anonymous" src="/360/images/sky.jpg">
             
             <!--textures-->
               <img id="crate" src="/textures/box.jpg">
               <img id="crate-normal" src="textures/box-normal.jpg">
+              <img id="deadpool-color" src="textures/deadpool.jpg">
+              <img id="deadpool-oa" src="textures/deadpool.tga">
+              <img id="deadpool-normal" src="textures/deadpool-normal.tga">
             
             
-            <!--button-->
+            
+            
+            <!--3D Models-->
+            <a-asset-item id="deadpool-obj" src="/obj/deadpool.obj"></a-asset-item>
+            
+
+
+            
+
 
         <!-- Image link template to be reused. -->
-
-         <script id="link" type="text/html">
+   <script id="link" type="text/html">
               <a-entity class="link"
                 geometry="primitive: sphere; height: 1; width: 1"
                 material="shader: flat; src: ${thumb}"
@@ -48,27 +58,42 @@
         </a-assets>
         
 <!--        button-->
+<!--
         <a-entity class="button"
-  geometry="primitive: plane; height: 1; width: 1"
-  material="shader: flat; src: #cubes-thumb"></a-entity>
-
-        <a-entity light="color: white; intensity: 1" type="hemisphere" position="1 1 0"></a-entity>
+                  geometry="primitive: plane; height: 1; width: 1"
+                  material="shader: flat; src: #cubes-thumb">
+        </a-entity>
+-->
+        
+          <!-- ROOM . -->
+<!--          <a-obj-model position="0 0 0" rotation="0 0 0"  scale=".5 .5 .5" src="/obj/WebVRoom01.obj" mtl="#room-mtl"></a-obj-model>  -->
+      
+      
+<!--        lights-->
+        <a-entity light="color: white; intensity: 1" type="ambient" position="1 1 0"></a-entity>
        
         <!-- Textured box. -->
-        <a-box depth=".5" height=".5" width=".5" position="0 1.7 -1" rotation="0 0 0" src="#crate" fog="true" normal-map="#crate-normal" matelness="1">
+<!--
+        <a-box depth=".5" height=".5" width=".5" position="0 0 0" rotation="0 0 0" src="#crate" fog="true" normal-map="#crate-normal" matelness="1">
          <a-animation attribute="rotation" dur="50000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-         <a-animation attribute="position" dur="50000" fill="forwards" to="0 2 0" easing="linear" repeat="indefinite"></a-animation>
+     
         </a-box>
+-->
+<!--        Character-->
+        
+            <a-plane height="5"  width="5" position="0 0 0" rotation="-90 0 0"></a-plane>
+              <a-entity scale="0.01 0.01 0.01" material="src: #deadpool-color" obj-model="obj: #deadpool-obj;" ambientOcclusionMap="#deadpool-ao" normalMap="#deadpool-normal"></a-entity>
+
         
         
         <!--        Button-->
-        <a-image src="#my-image"></a-image>
+<!--        <a-image src="#my-image"></a-image>-->
         
-        <!-- 360-degree image. -->
-        <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#img1"></a-sky>
+        <!-- Sky-->
+        <a-sky id="image-360" rotation="0 -90 0" radius="512" src="#sky"></a-sky>
 
       <!-- Camera + cursor. -->
-        <a-entity camera="userHeight: 1.8" look-controls wasd-controls>
+        <a-entity camera="userHeight: 1.7" look-controls wasd-controls>
             <a-cursor id="cursor"
               animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
               animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
