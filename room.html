@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>360&deg; Studiobox</title>
+    <title>360&deg; Room</title>
     <meta name="description" content="360&deg; Image Gallery - A-Frame">
     <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
@@ -13,7 +13,7 @@
       
   </head>
   <body>
-    <a-scene keyboard-shortcuts="enterVR: false">
+    <a-scene stats keyboard-shortcuts="enterVR: false">
         
       
         
@@ -24,7 +24,13 @@
             
             <!-- 360 images-->
             <img id="img1" crossorigin="anonymous" src="/360/images/checkermap.jpg">
-             
+            
+            <!--textures-->
+              <img id="crate" src="/textures/box.jpg">
+              <img id="crate-normal" src="textures/box-normal.jpg">
+            
+            
+            <!--button-->
 
         <!-- Image link template to be reused. -->
 
@@ -40,13 +46,29 @@
                 sound="on: click; src: #click-sound"></a-entity>
             </script>
         </a-assets>
+        
+<!--        button-->
+        <a-entity class="button"
+  geometry="primitive: plane; height: 1; width: 1"
+  material="shader: flat; src: #cubes-thumb"></a-entity>
 
+        <a-entity light="color: white; intensity: 1" type="hemisphere" position="1 1 0"></a-entity>
+       
+        <!-- Textured box. -->
+        <a-box depth=".5" height=".5" width=".5" position="0 1.7 -1" rotation="0 0 0" src="#crate" fog="true" normal-map="#crate-normal" matelness="1">
+         <a-animation attribute="rotation" dur="50000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+         <a-animation attribute="position" dur="50000" fill="forwards" to="0 2 0" easing="linear" repeat="indefinite"></a-animation>
+        </a-box>
+        
+        
+        <!--        Button-->
+        <a-image src="#my-image"></a-image>
         
         <!-- 360-degree image. -->
         <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#img1"></a-sky>
 
       <!-- Camera + cursor. -->
-        <a-entity camera="userHeight: 1.8" look-controls>
+        <a-entity camera="userHeight: 1.8" look-controls wasd-controls>
             <a-cursor id="cursor"
               animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
               animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
