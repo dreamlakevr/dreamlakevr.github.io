@@ -26,21 +26,21 @@
             <img id="sky" crossorigin="anonymous" src="/360/images/sky.jpg">
             
             <!--textures-->
-              <img id="crate" src="/textures/box.jpg">
-              <img id="crate-normal" src="textures/box-normal.jpg">
-              <img id="deadpool-color" src="textures/deadpool.jpg">
-              <img id="bb8-color" src="textures/bb8-color.jpg">
-              <img id="bb8-normal" src="textures/bb8-normal.jpg">
-              <img id="bb8-oa" src="textures/bb8-oa.jpg.jpg">
+         
+            
+              <img id="bb8-body" src="textures/bb8-body-d.jpg">
+              <img id="bb8-head" src="textures/bb8-head-d.jpg">
+       
             
             
             
             
             
             <!--3D Models-->
-            <a-asset-item id="deadpool-obj" src="/obj/deadpool.obj"></a-asset-item>
-    
-            <a-asset-item id="bb8-obj" src="/obj/bb8.obj"></a-asset-item>    
+          
+            
+            <a-asset-item id="bb8Head-obj" src="/obj/bb8Head.obj"></a-asset-item>    
+            <a-asset-item id="bb8Body-obj" src="/obj/bb8Body.obj"></a-asset-item>    
             
             <a-asset-item id="room-obj" src="/obj/WebVRoom.obj"></a-asset-item>
             <a-asset-item id="room-mtl" src="/obj/WebVRoom.mtl"></a-asset-item>
@@ -65,22 +65,33 @@
         </a-assets>
         
 
--->
+
         
           <!-- ROOM . -->
 <!--          <a-obj-model position="0 0 0" rotation="0 0 0"  scale=".5 .5 .5" src="/obj/WebVRoom01.obj" mtl="#room-mtl"></a-obj-model>  -->
       
       
         <!--lights-->
-        <a-entity light="color: white; intensity: 1" type="ambient" position="1 1 0"></a-entity>
+<!--        <a-entity light="color: white; intensity: 1" type="ambient" position="1 1 0"></a-entity>-->
        
         
         <!--models-->
-        <a-plane height="5"  width="5" position="0 0 0" rotation="-90 0 0"></a-plane>
-        <a-entity scale="0.01 0.01 0.01" material="src: #deadpool-color" obj-model="obj: #deadpool-obj;"></a-entity>
+<!--        <a-plane height="5"  width="5" position="0 0 0" rotation="-90 0 0"></a-plane>-->
+<!--        <a-entity scale="0.01 0.01 0.01" material="src: #deadpool-color" obj-model="obj: #deadpool-obj;"></a-entity>-->
       
         
 <!--        <a-entity scale="0.005 0.005 0.005" position="1 .3w 0" material="src: #bb8-color" obj-model="obj: #bb8-obj;" normalMap="#bb8-normal" ambientOcclusionMap="#bbq-oa" metalness="1"></a-entity>-->
+        <a-entity>
+             <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+         
+            <a-entity scale="0.005 0.005 0.005" position="1 .3 0" material="src: #bb8-head" obj-model="obj: #bb8Head-obj;">
+             <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+            </a-entity>
+            
+            <a-entity scale="0.005 0.005 0.005" position="1 .3 0" material="src: #bb8-body" obj-model="obj: #bb8Body-obj;">
+                <a-animation attribute="rotation" dur="3000" fill="forwards" to="-360 0 0" easing="linear" repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-entity>
         
         <a-entity scale="1 1 1" position="0 0 0" obj-model="obj: #room-obj; mtl: #room-mtl;" ></a-entity>
         

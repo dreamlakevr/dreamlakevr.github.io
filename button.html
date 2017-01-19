@@ -30,6 +30,10 @@
               <img id="crate-normal" src="textures/box-normal.jpg">
             
             
+<!--            svg-->
+            <img id="button-unpressed" src="/svg/button-unpressed.svg">
+            
+            
             <!--button-->
 
         <!-- Image link template to be reused. -->
@@ -48,9 +52,7 @@
         </a-assets>
         
 <!--        button-->
-        <a-entity class="button"
-  geometry="primitive: plane; height: 1; width: 1"
-  material="shader: flat; src: #cubes-thumb"></a-entity>
+        <a-entity class="button" geometry="primitive: plane; height: 1; width: 1" material="src: #button-unpressed"></a-entity>
 
         <a-entity light="color: white; intensity: 1" type="hemisphere" position="1 1 0"></a-entity>
        
