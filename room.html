@@ -29,14 +29,21 @@
               <img id="crate" src="/textures/box.jpg">
               <img id="crate-normal" src="textures/box-normal.jpg">
               <img id="deadpool-color" src="textures/deadpool.jpg">
-              <img id="deadpool-oa" src="textures/deadpool.tga">
-              <img id="deadpool-normal" src="textures/deadpool-normal.tga">
+              <img id="bb8-color" src="textures/bb8-color.jpg">
+              <img id="bb8-normal" src="textures/bb8-normal.jpg">
+              <img id="bb8-oa" src="textures/bb8-oa.jpg.jpg">
+            
             
             
             
             
             <!--3D Models-->
             <a-asset-item id="deadpool-obj" src="/obj/deadpool.obj"></a-asset-item>
+    
+            <a-asset-item id="bb8-obj" src="/obj/bb8.obj"></a-asset-item>    
+            
+            <a-asset-item id="room-obj" src="/obj/WebVRoom.obj"></a-asset-item>
+            <a-asset-item id="room-mtl" src="/obj/WebVRoom.mtl"></a-asset-item>
             
 
 
@@ -57,34 +64,25 @@
             </script>
         </a-assets>
         
-<!--        button-->
-<!--
-        <a-entity class="button"
-                  geometry="primitive: plane; height: 1; width: 1"
-                  material="shader: flat; src: #cubes-thumb">
-        </a-entity>
+
 -->
         
           <!-- ROOM . -->
 <!--          <a-obj-model position="0 0 0" rotation="0 0 0"  scale=".5 .5 .5" src="/obj/WebVRoom01.obj" mtl="#room-mtl"></a-obj-model>  -->
       
       
-<!--        lights-->
+        <!--lights-->
         <a-entity light="color: white; intensity: 1" type="ambient" position="1 1 0"></a-entity>
        
-        <!-- Textured box. -->
-<!--
-        <a-box depth=".5" height=".5" width=".5" position="0 0 0" rotation="0 0 0" src="#crate" fog="true" normal-map="#crate-normal" matelness="1">
-         <a-animation attribute="rotation" dur="50000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-     
-        </a-box>
--->
-<!--        Character-->
         
-            <a-plane height="5"  width="5" position="0 0 0" rotation="-90 0 0"></a-plane>
-              <a-entity scale="0.01 0.01 0.01" material="src: #deadpool-color" obj-model="obj: #deadpool-obj;" ambientOcclusionMap="#deadpool-ao" normalMap="#deadpool-normal"></a-entity>
-
+        <!--models-->
+        <a-plane height="5"  width="5" position="0 0 0" rotation="-90 0 0"></a-plane>
+        <a-entity scale="0.01 0.01 0.01" material="src: #deadpool-color" obj-model="obj: #deadpool-obj;"></a-entity>
+      
         
+<!--        <a-entity scale="0.005 0.005 0.005" position="1 .3w 0" material="src: #bb8-color" obj-model="obj: #bb8-obj;" normalMap="#bb8-normal" ambientOcclusionMap="#bbq-oa" metalness="1"></a-entity>-->
+        
+        <a-entity scale="1 1 1" position="0 0 0" obj-model="obj: #room-obj; mtl: #room-mtl;" ></a-entity>
         
         <!--        Button-->
 <!--        <a-image src="#my-image"></a-image>-->
