@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Room</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="components/set-image.js"></script>
+      
+  </head>
+  <body>
+    <a-scene stats keyboard-shortcuts="enterVR: false">
+        
+      
+        
+        <a-assets>
+            <!--Audio-->
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+          
+            
+            <!-- 360 images-->
+            <img id="sky" crossorigin="anonymous" src="/360/images/outside-small.jpg">
+            <img id="hud" crossorigin="anonymous" src="/360/images/spider-hud.png">
+            
+            <!--textures-->
+            
+
+            
+            <!--3D Models-->
+              <a-asset-item id="tie-obj" src="/obj/star-wars-vader-tie-fighter.obj"></a-asset-item>   
+              <a-asset-item id="tie-mtl" src="/obj/star-wars-vader-tie-fighter.mtl"></a-asset-item>   
+            
+
+
+        <!-- Image link template to be reused. -->
+            <script id="link" type="text/html">
+              <a-entity class="link"
+                geometry="primitive: sphere; height: 1; width: 1"
+                material="shader: flat; src: ${thumb}"
+                event-set__1="_event: mousedown; scale: 1 1 1"
+                event-set__2="_event: mouseup; scale: 1.2 1.2 1.2"
+                event-set__3="_event: mouseenter; scale: 1.2 1.2 1.2"
+                event-set__4="_event: mouseleave; scale: 1 1 1"
+                set-image="on: click; target: #image-360; src: ${src}"
+                sound="on: click; src: #click-sound"></a-entity>
+            </script>
+            
+        </a-assets>
+        <!-- Sky-->
+      
+<!--       <a-sky id="" rotation="0 -90 0" radius="128" src="#hud"></a-sky>-->
+       <a-sky id="image-360" rotation="0 -90 0" radius="512" src="#sky"></a-sky>
+        
+   
+        <a-entity scale="1 1 1" rotation="0 -180 0" position="-.3 .65 .6" obj-model="obj: #tie-obj; mtl: #tie-mtl;"></a-entity>
+        
+<!--        <a-curvedimage src="#hud" height="16" radius="16" theta-length="180"     rotation="0 90 0" scale="1 1 1" position="0 1.7 0"></a-curvedimage>-->
+        
+
+      <!-- Camera + cursor. -->
+        <a-entity camera="userHeight: 1.7" look-controls wasd-controls>
+            <a-cursor id="cursor"
+              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+              event-set__1="_event: mouseenter; color: springgreen"
+              event-set__2="_event: mouseleave; color: black"
+              raycaster="objects: .link">
+            </a-cursor>
+        </a-entity>
+        
+    </a-scene>
+      
+  </body>
+</html>
+
