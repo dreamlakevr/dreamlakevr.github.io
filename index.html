@@ -1,138 +1,61 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Dreamlake 360&deg;</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame">
-    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
-    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    <script src="components/set-image.js"></script>
-  </head>
-  <body>
+<html class="animated fadeIn">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-layered Parallax Illustration </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
   
-    <a-scene keyboard-shortcuts="enterVR: false">
+</head>
 
-<!--      <a-box href="porto.html" template="src: #link" data-src="#porto" data-thumb="#porto-thumb" color="red" position="1 0 -.3" rotation="0 45 45" scale=".1 .1 .1"></a-box>-->
-<!--        <a-box template="src: #link" data-src="#studiobox" data-thumb="#studiobox-thumb" color="blue" position="1 0 .3" rotation="0 45 45" scale=".1 .1 .1"></a-box>-->
-<!--        <a-box template="src: #link" data-src="#dreamlake" data-thumb="#dreamlake-thumb" color="yellow" position=".3 -3 .6" rotation="0 45 45" scale=".1 .1 .1"></a-box>-->
-      
-        <!--projects-->
-     
-            <a-entity bmfont-text="text: projects!; color: #fff;" rotation="0 90 0" position="-1.5 1.8 .5" scale="1 1 1"></a-entity>
-            <!--Studiobox-->
-            <a-entity rotation="0 90 0" position="-1.5 1.2 .5" scale=".3 .3 .3">
-                <a-entity bmfont-text="text: Studiobox!; color: #fff;" position="-.1 0 0" scale="1 1 1"></a-entity>
-                <a-sphere onClick="location.href='studiobox.html'"  template="src: #link" data-src="#sb" data-thumb="#sb" src="/360/images/s1.jpg" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
-                    <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-                </a-sphere>
-            </a-entity> 
-
-            <!--porto-->
-            <a-entity rotation="0 90 0" position="-1.5 1.2 -.2"  scale=".3 .3 .3">
-                <a-entity bmfont-text="text: Porto!; color: #fff;" position=".1 0 0" scale="1 1 1"></a-entity>
-                <a-sphere onClick="location.href='porto.html'"  template="src: #link" data-src="#sb" data-thumb="#sb" src="/360/images/porto.png" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
-                    <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-                </a-sphere>
-            </a-entity>
-        
-            <!-- livestream -->
-            <a-entity rotation="0 90 0" position="-1.5 1.2 1.2"  scale=".3 .3 .3">
-                <a-entity bmfont-text="text: livestream!; color: #fff;" position="-.15 0 0" scale="1 1 1"></a-entity>
-                <a-sphere onClick="location.href='livestream.html'"  template="src: #link" data-src="#sb" data-thumb="#sb" src="/360/images/dl.jpg" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
-                    <a-animation attribute="rotation" dur="1000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-                </a-sphere>
-            </a-entity>
-        
-        
-            <!--Home-->
-            <a-entity rotation="0 0 0" position="0 1 0" rotation="-90 0 0" scale=".3 .3 .3">
-                <a-entity  data-src="#sb" data-thumb="#sb" bmfont-text="text: Back to home!!; color: #fff;" position="-.55 -.3 0" scale="1 1 1"></a-entity>
-                
-                <a-obj-model template="src: #link" onClick="location.href='index.html'" color="#8bc34a" position="0 0 0" rotation="0 0 0"  scale="1 1 1"  src="/obj/DL-Logo-Welded-50cm.obj"  mtl="#logo-mtl"></a-obj-model>  
-            </a-entity> 
-        
-        
-        <a-assets>
-                      
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-            
-            <img id="dreamlake" crossorigin="anonymous" src="/360/images/dl.png">
-             
-
-        <!-- Image link template to be reused. -->
-        <script id="link" type="text/html">
-          <a-entity class="link"
-            geometry="primitive: box; height: 0.9; width: 0.9"
-            material="shader: flat; src: ${thumb}"
-            event-set__1="_event: mousedown; scale: .9 .9 .9"
-            event-set__2="_event: mouseup; scale: 1.2 1.2 1.2"
-            event-set__3="_event: mouseenter; scale: 1.2 1.2 1.2"
-            event-set__4="_event: mouseleave; scale: .9 .9 .9"
-            set-image="on: click; target: #webpage; src: ${src}"
-            sound="on: click; src: #click-sound"
-                    ></a-entity>
-        </script>
-         
-           
-           
-
-            <img id="my-texture" src="https://i.imgur.com/mYmmbrp.jpg">
-            <img id="minion-mtl" src="/obj/minion.mtl">
-            <img id="skyTexture"  src="/360/images/dl.jpg">
-           
-      </a-assets>
-        
-
-        
-      <!-- 360-degree image. -->
-<!--              <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#dreamlake"></a-sky>-->
-              <a-sky rotation="0 140 0"  src="#skyTexture"></a-sky>
-
-
-          <!-- Dreamlake Logo. -->
-          <a-obj-model color="#8bc34a" position="0 60 -80" rotation="0 0 0"  scale="120 120 20"  src="/obj/DL-Logo-Welded-50cm.obj"  mtl="#logo-mtl">
-              <a-animation attribute="position" to="0 62 -80" direction="alternate" dur="3000"  repeat="indefinite">
-              </a-animation>
-        </a-obj-model>  
-        
-        <!-- Minion . -->
-          <a-obj-model position="0 0 -10" rotation="0 0 0"  scale="10 10 10" src="/obj/minion.obj" mtl="#minion-mtl">
-<!--  alongpath="path:0,0,-10 10,0,0 0,0,10 -10,0,0; closed:true; dur:5000; delay:128; inspector:false; direction:alternate; repeat:indefinite;-->
-              <a-animation attribute="position" to="0 0 -8" direction="alternate" dur="2000"  repeat="indefinite">
-              </a-animation>
-
-        </a-obj-model> 
-<!--        <audio src="/audio/hehehe.mp3" autoplay="true" loop="true" ></audio>  -->
-        
-        <a-entity bmfont-text="text: DREAMLAKE; fnt:/fonts/futura.fnt; fntImage:/fonts/futura.png;  color: #fff" position="-40 50 -51a" rotation="0 0 0"  scale="100 100 100"></a-entity>
-        <a-entity bmfont-text="text: Test Environment!; color: #fff" position="-16 53.5a -49.1w" rotation="0 0 0"  scale="20 20 20"></a-entity>
-        <a-entity position="0 55 -50" rotation="0 0 0"  scale="40 5 .1" geometry="primitive: box" color="red"></a-entity>
+<body>
+  <div id='hero'>
+  <div class='layer-bg layer' data-depth='0.10' data-type='parallax'></div>
+  <div class='layer-1 layer' data-depth='0.20' data-type='parallax'></div>
+  <div class='layer-2 layer' data-depth='0.50' data-type='parallax'></div>
+  <div class='layer-3 layer' data-depth='0.80' data-type='parallax'></div>
+  <div class='layer-4 layer' data-depth='1.00' data-type='parallax'></div>   
+  <div class='layer-overlay layer' data-depth='1' data-type='parallax'></div>
        
-        <a-entity bmfont-text="text: OBEY!; color: #f44336" position="-4 0 -5" scale="20 20 20"></a-entity>
-
-
+</div>
+<div id='hero-mobile'></div>
+   
+<div id='content'>
+  <div class='container'>
+    <section class='first-section'>
+     
+      <div class='row'>
+        <div class='col-sm-6'>
+          <h1>Reflecting business in virtual reality</h1>
+          <h2>We deliver custom and innovative applications to our clients</h2>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-6'>
+            <br/>
+          <p>Dreamlake is a company based in Utrecht which specializes in creating virtual reality content and platforms for business purposes. We have been developing VR technologies and applications since 2013 and received an innovation price from the Dutch Government. Since then we provided many customers from different backgrounds with their own custom made VR experience.</p>
+            <p>
+            Virtual reality is an excellent tool for 3D visualisation or for use in training and simulating complex situations. Some examples of industries that benefit from virtual reality are: real estate, interior design, product development, marketing, training and education.
+            </p>
+        </div>
+        <div class='col-sm-6'>
+          <p> In regards of training and education, virtual reality enables the user to be immersed in any situation and actively engage with the available content, rather than passively looking at static pictures or video. This leads to a better understanding of the presented content.</p>
+          <p>We create virtual reality experiences from start to finish. Dreamlake takes care of delivering virtual reality content and the application to play it with. We also developed a framework for livestreaming 360 video. We can develop Virtual Reality experiences for PC or mobile with all current VR devices. We work on a daily basis with the Oculus Rift and Samsung Gear VR and also develop mobile apps for use with Google Cardboard.</p>
         
-      <!-- Camera + cursor. -->
-      <a-entity camera="userHeight: 1.8" camera look-controls wasd-controls>
-          
-        <a-cursor id="cursor"
-          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__1="_event: mouseenter; color: springgreen"
-          event-set__2="_event: mouseleave; color: black"
-          raycaster="objects: .link">
-          </a-cursor>
-          
-      </a-entity>
-        
-    </a-scene>
-      
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+  
+    <script src="js/index.js"></script>
 
-  </body>
+</body>
 </html>
-

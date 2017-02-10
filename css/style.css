@@ -1,0 +1,100 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-family: 'Playfair Display', serif;
+  color: #666;
+}
+
+#hero {
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+#content {
+  background-color: #fff;
+}
+
+.layer {
+  background-position: bottom center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 800px;
+  position: fixed;
+  z-index: -1;
+}
+
+#hero-mobile {
+  display: none;
+  background: url("/img/heroimg-clean.jpg") no-repeat center bottom/cover;
+  height: 320px;
+}
+
+.first-section {
+  padding: 50px 0 20px 0;
+}
+
+.text-header {
+  font-size: 50px;
+  text-align: center;
+}
+
+h1 {
+  line-height: 120%;
+  margin-bottom: 30px;
+}
+h2 {
+  line-height: 80%;
+  margin-bottom: 30px;
+}
+
+p {
+  color: #2e2e2e;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+#hero, .layer {
+  min-height: 1080px;
+}
+
+.layer-bg {
+  background-image: url("/img/mountain-bg-1.jpg");
+}
+
+.layer-1 {
+  background-image: url("/img/mountain-bg-2.png");
+/*  background-position: left bottom;*/
+}
+
+.layer-2 {
+  background-image: url("/img/mountain-bg-3.png");
+}
+
+.layer-3 {
+  background-image: url("/img/mountain-bg-4.png");
+    top:0%;
+/*  background-position: right bottom;*/
+}
+
+.layer-4 {
+  background-image: url("/img/dreamlake-logo-black-full.png");
+   top:-40%;
+}
+
+.layer-overlay {
+  background-image: url("/img/mountain-bg-4.png");
+}
+
+@media only screen and (max-width: 768px) {
+  #hero {
+    display: none;
+  }
+
+  #hero-mobile {
+    display: block;
+  }
+}
+
