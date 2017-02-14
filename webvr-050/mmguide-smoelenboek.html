@@ -1,34 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>360&deg; Studiobox</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame">
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
 
-      
-  </head>
-  <body>
-    <a-scene keyboard-shortcuts="enterVR: false">
-        
-        <!-- Navigation-->
-<!--        <a-box template="src: #link" data-src="#s1" data-thumb="#s1-thumb" color="red" position="1 -0.6 -.6" rotation="0 45 45" scale=".1 .1 .1"></a-box>-->
-   
+    
         
       
 
         
-        <a-assets>
+<!--        <a-assets>-->
             <!--Audio-->
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+<!--            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>-->
           
             
             <!-- 360 images-->
-            <img id="s1" crossorigin="anonymous" src="/webvr-050/360/images/mmg-bg.jpg">
+<!--            <img id="s1" crossorigin="anonymous" src="/webvr-050/360/images/mmg-bg.jpg">-->
              
 
         <!-- Image link template to be reused. -->
 
+<!--
          <script id="link" type="text/html">
               <a-entity class="link"
                 geometry="primitive: sphere; height: 1; width: 1"
@@ -40,13 +27,51 @@
                 set-image="on: click; target: #image-360; src: ${src}"
                 sound="on: click; src: #click-sound"></a-entity>
             </script>
+            
+             <a-mixin
+          id="marker"
+          geometry="primitive: plane; width: 0.02; height: 0.02"
+          material="color: red"
+        ></a-mixin>
 
         </a-assets>
+-->
+<!--
 <a-entity
   geometry="primitive: plane; width: 4; height: auto"
   material="color: blue"
   text="value: This text will be 4 units wide."></a-entity>
+  <a-entity mixin="marker" position="-2.5 0.7 0.01"></a-entity>
 
+       Animations. 
+      <a-entity id="opacity" position="-2.5 0.7 0"
+                text="color: white; align: center; value: Animating opacity; width: 1.5">
+      </a-entity>
+      <a-entity mixin="marker" position="0 0.7 0.01"></a-entity>
+      <a-entity id="color" position="0 0.7 0"
+                text="color: white; align: center; value: Animating color; width: 1.5">
+      </a-entity>
+      <a-entity mixin="marker" position="2.5 0.7 0.01"></a-entity>
+      <a-entity id="size" position="2.5 0.7 0"
+                text="color: white; align: center; value: Animating size; width: 1.5">
+      </a-entity>
+-->
+
+      <!-- Anchors. -->
+<!--
+      <a-entity mixin="marker" position="-2.5 1 0.01"></a-entity>
+      <a-entity position="-2.5 1 0"
+                text="anchor: left; width: 1.5; color: white; value: [LEFT ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity>
+      <a-entity mixin="marker" position="0 1 0.01"></a-entity>
+      <a-entity position="0 1 0"
+                text="anchor: center; width: 1.5; color: white; value: [CENTER ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity>
+      <a-entity mixin="marker" position="2.5 1 0.01"></a-entity>
+      <a-entity position="2.5 1 0"
+                text="anchor: right; width: 1.5; color: white; value: [RIGHT ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity>
+-->
         
         <!-- 360-degree image. -->
 <!--        <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#s1"></a-sky>-->
@@ -54,7 +79,81 @@
      
         
 
-      <!-- Camera + cursor. -->
+    
+        
+
+
+
+<html>
+  <head>
+    <title>Text</title>
+    <meta name="description" content="Text - A-Frame">
+     <script src="/webvr-050/js/aframe-master.min.js"></script>
+       <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <a-scene>
+        
+      <a-assets>
+        
+          <!-- images-->-->
+          <img id="mmg-logo" src="/webvr-050/images/logo-mmg-slack.jpg">
+          
+          
+<!--          werknemers-->
+          <img id="bartg" src="/webvr-050/images/profilepics/bartg.png">
+          
+          
+      </a-assets>
+
+        
+       
+  
+
+    
+
+      
+        <a-entity position="0.4 1 0">
+            <a-image 
+                     position="0.52 1.1 0"
+                     src="#bartg"></a-image>
+            <a-entity 
+                       position="0 .4 0"
+                text="anchor: left; width: 4; color: white; value: 
+                      Bart Geers
+                      ">
+            </a-entity> 
+            <a-entity 
+                       position="0 .2 0"
+                text="anchor: left; width: 3; color: white; value: 
+                      Product Designer
+                      ">
+            </a-entity>
+            <a-entity 
+                       position="-0 0 0"
+                text="anchor: left; width: 1; lineHeight: 60; color: white; wrapCount:35; value: 
+                      Momenteel bezig met de Dreamlake website en 'Ontdekje werkplekje',
+                      ">
+            </a-entity>
+           
+           <a-entity class="button"
+                       position="-0 0 0"
+                text="anchor: left; width: 1; lineHeight: 60; color: white; wrapCount:35; value: 
+                      Momenteel bezig met de Dreamlake website en 'Ontdekje werkplekje',
+                      ">
+            </a-entity>
+        </a-entity>
+  
+
+     <!-- MMG Intro. -->
+        <a-image position="-.5 2.8 0" src="#mmg-logo"></a-image>
+        <a-entity position="0 2 0"
+                  text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                        Dit is het Virtuele MM Guide Smoelenboek, hier op kun je zien wat je collega's bezig houden. 
+                      ">
+        </a-entity>
+
+          <!-- Camera + cursor. -->
         <a-entity camera="userHeight: 1.8" look-controls wasd-controls>
             <a-cursor id="cursor"
               animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
@@ -64,9 +163,15 @@
               raycaster="objects: .link">
             </a-cursor>
         </a-entity>
-        
+     
+
+      <a-sky color="#333"></a-sky>
+      <a-entity position="0 1.8 2">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
     </a-scene>
-      
+
+    
   </body>
 </html>
 
