@@ -12,6 +12,23 @@
         <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
         <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
         <script src="components/set-image.js"></script>
+      
+      
+        <!-- URL CANONICAL -->
+         <link rel="canonical" href="www.dreamlake.nl"> 
+
+        <!-- FAVICONS -->
+        <link rel="shortcut icon" sizes="16x16" href="./images/favicons/favicon.png">
+        <link rel="shortcut icon" sizes="32x32" href="./images/favicons/favicon-32.png">
+        <link rel="apple-touch-icon icon" sizes="76x76" href="./images/favicons/favicon-76.png">
+        <link rel="apple-touch-icon icon" sizes="120x120" href="./images/favicons/favicon-120.png">
+        <link rel="apple-touch-icon icon" sizes="152x152" href="./images/favicons/favicon-152.png">
+        <link rel="apple-touch-icon icon" sizes="180x180" href="./images/favicons/favicon-180.png">
+        <link rel="apple-touch-icon icon" sizes="192x192" href="./images/favicons/favicon-192.png">
+
+        <!-- Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#333333">
   </head>
   <body>
     <a-scene keyboard-shortcuts="enterVR: false">
@@ -44,9 +61,9 @@
           
             
             <!-- 360 images-->
-            <img id="s1" crossorigin="anonymous" src="/webvr-050/360/images/checkermap.jpg">
-            <img id="s3" crossorigin="anonymous" src="/webvr-050/360/images/checkermap.jpg">
-            <img id="default" crossorigin="anonymous" src="/webvr-050/360/images/checkermap.jpg">
+            <img id="s1" crossorigin="anonymous" src="./360/images/checkermap.jpg">
+            <img id="s3" crossorigin="anonymous" src="./360/images/checkermap.jpg">
+            <img id="default" crossorigin="anonymous" src="./360/images/checkermap.jpg">
              
 
         <!-- Image link template to be reused. -->
@@ -72,7 +89,7 @@
 
         
         <!--     SB map-->
-        <a-obj-model color="#ED7A2C" position="0 0 -8d" rotation="0 40 0" color="" scale="1 1 1" src="/webvr-050/obj/Studiobox.obj" mtl="#logo-mtl"></a-obj-model>
+        <a-obj-model color="#ED7A2C" position="0 0 -8d" rotation="0 40 0" color="" scale="1 1 1" src="./obj/Studiobox.obj" mtl="#logo-mtl"></a-obj-model>
         
         
 <!--           vive controllers -->
