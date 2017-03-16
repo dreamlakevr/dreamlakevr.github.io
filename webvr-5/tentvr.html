@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Dreamlake - 360&deg; VR crossplatform Shop</title>
     <meta name="description" content="Text - A-Frame">
-      <script src="/webvr-050/js/aframe-master.min.js"></script>
-      <link rel="stylesheet" href="css/style.css">
+      <script src="/webvr-5/js/aframe-master.min.js"></script>
+      <link rel="stylesheet" href="./css/style.css">
       
         <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
         <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
@@ -61,9 +61,9 @@
           
             
             <!-- 360 images-->
-            <img id="s1" crossorigin="anonymous" src="./360/images/checkermap.jpg">
-            <img id="s3" crossorigin="anonymous" src="./360/images/checkermap.jpg">
-            <img id="default" crossorigin="anonymous" src="./360/images/checkermap.jpg">
+            <img id="s1" crossorigin="anonymous" src="360/checkermap.jpg">
+            <img id="s3" crossorigin="anonymous" src="360/checkermap.jpg">
+            <img id="default" crossorigin="anonymous" src="360/checkermap.jpg">
              
 
         <!-- Image link template to be reused. -->
@@ -79,8 +79,14 @@
                 set-image="on: click; target: #image-360; src: ${src}"
                 sound="on: click; src: #click-sound"></a-entity>
             </script>
+            
+<!--            models-->
+            <a-asset-item id="tent-obj" src="/webvr-5/obj/tentvr-koepeltent-01.obj"></a-asset-item>
+            <a-asset-item id="tent-mtl" src="/webvr-5/mtl/tentvr-koepeltent-01.mtl"></a-asset-item>
 
         </a-assets>
+       
+  
 
 
         
@@ -89,7 +95,8 @@
 
         
         <!--     SB map-->
-        <a-obj-model color="#ED7A2C" position="0 0 -8d" rotation="0 40 0" color="" scale="1 1 1" src="./obj/Studiobox.obj" mtl="#logo-mtl"></a-obj-model>
+        <a-entity position="0 0 -6" rotation="0 40 0" color="" scale=".01 .01 .01" obj-model="obj: #tent-obj; mtl: #tent-mtl"></a-entity>
+
         
         
 <!--           vive controllers -->
