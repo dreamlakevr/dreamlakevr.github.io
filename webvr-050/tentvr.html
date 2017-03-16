@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dreamlake - 360&deg; VR crossplatform Shop</title>
+    <meta name="description" content="Text - A-Frame">
+      <script src="/webvr-050/js/aframe-master.min.js"></script>
+      <link rel="stylesheet" href="css/style.css">
+      
+        <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+        <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+        <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+        <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+        <script src="components/set-image.js"></script>
+  </head>
+  <body>
+    <a-scene keyboard-shortcuts="enterVR: false">
+        
+        <!-- Navigation-->
+        <a-box template="src: #link" data-src="#s1" data-thumb="#s1-thumb" color="red" position="1 -0.6 -.6" rotation="0 45 45" scale=".1 .1 .1"></a-box>
+        <a-box template="src: #link" data-src="#s2" data-thumb="#s2-thumb" color="blue" position=".3 -.6w .2" rotation="0 45 45" scale=".1 .1 .1"></a-box>
+        <a-box template="src: #link" data-src="#s3" data-thumb="#s3-thumb" color="yellow" position="-.4 -.6 -.1"  rotation="0 45 45" scale=".1 .1 .1"></a-box>
+        
+        <!--SCENE 1-->
+        <a-entity position="-.6 1.2 -1"  scale=".3 .3 .3">
+            <a-entity bmfont-text="text: Scene 1!; color: #fff;" position="0 0 0" scale="1 1 1"></a-entity>
+            <a-sphere template="src: #link" data-src="#s1" data-thumb="#s1" src="#s1" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
+                <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+            </a-sphere>
+        </a-entity>
+     
+        <!--SCENE 2-->
+        <a-entity position=".41 1.2 -1" scale=".3 .3 .3">
+            <a-entity bmfont-text="text: Scene 3!; color: #fff;" position="0 0 0" scale="1 1 1"></a-entity>
+            <a-sphere metalness="0.1" roughness="0.3" template="src: #link" data-src="#s3" data-thumb="#s3" src="#s3" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
+                <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+            </a-sphere>
+        </a-entity>
+
+        
+        <a-assets>
+            <!--Audio-->
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+          
+            
+            <!-- 360 images-->
+            <img id="s1" crossorigin="anonymous" src="/webvr-050/360/images/checkermap.jpg">
+            <img id="s3" crossorigin="anonymous" src="/webvr-050/360/images/checkermap.jpg">
+            <img id="default" crossorigin="anonymous" src="/webvr-050/360/images/checkermap.jpg">
+             
+
+        <!-- Image link template to be reused. -->
+
+         <script id="link" type="text/html">
+              <a-entity class="link"
+                geometry="primitive: sphere; height: 1; width: 1"
+                material="shader: flat; src: ${thumb}"
+                event-set__1="_event: mousedown; scale: 1 1 1"
+                event-set__2="_event: mouseup; scale: 1.2 1.2 1.2"
+                event-set__3="_event: mouseenter; scale: 1.2 1.2 1.2"
+                event-set__4="_event: mouseleave; scale: 1 1 1"
+                set-image="on: click; target: #image-360; src: ${src}"
+                sound="on: click; src: #click-sound"></a-entity>
+            </script>
+
+        </a-assets>
+
+
+        
+        <!-- default 360-degree background image. -->
+        <a-sky id="image-360" rotation="0 -90 0" radius="32" src="#default"></a-sky>
+
+        
+        <!--     SB map-->
+        <a-obj-model color="#ED7A2C" position="0 0 -8d" rotation="0 40 0" color="" scale="1 1 1" src="/webvr-050/obj/Studiobox.obj" mtl="#logo-mtl"></a-obj-model>
+        
+        
+<!--           vive controllers -->
+        <a-entity tracked-controls="controller: 0; id: OpenVR Gamepad"></a-entity>
+        <a-entity vive-controls="hand: left"></a-entity>
+        <a-entity vive-controls="hand: right"></a-entity>
+        
+      <!-- Camera + cursor. -->
+        <a-entity camera="userHeight: 1.8" look-controls wasd-controls>
+            <a-cursor id="cursor"
+              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+              event-set__1="_event: mouseenter; color: springgreen"
+              event-set__2="_event: mouseleave; color: black"
+              raycaster="objects: .link">
+            </a-cursor>
+        </a-entity>
+        
+    </a-scene>
+      
+  </body>
+</html>
+
