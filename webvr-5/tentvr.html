@@ -45,8 +45,9 @@
         <a-entity position="-.7 1.2 -1"  scale=".3 .3 .3">
           
             <a-sphere template="src: #link" data-src="#s1" data-thumb="#s1" src="#s1" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
-                <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+                <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"> </a-animation>
             </a-sphere>
+            <a-image position=".35 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="1 1 1" src="#shadowtex"></a-image>
         </a-entity>
      
         <!--SCENE 2-->
@@ -55,6 +56,7 @@
             <a-sphere metalness="0.1" roughness="0.3" template="src: #link" data-src="#s2" data-thumb="#s2" src="#s2" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
                 <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
             </a-sphere>
+             <a-image position=".35 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="1 1 1" src="#shadowtex"></a-image>
         </a-entity>
 
         
@@ -67,7 +69,7 @@
             <!-- 360 images-->
             <img id="s1" crossorigin="anonymous" src="/webvr-5/360/tentvr-snow-01.jpg">
             <img id="s2" crossorigin="anonymous" src="/webvr-5/360/tentvr-mountain-01.jpg">
-            <img id="default" crossorigin="anonymous" src="/webvr-5/360/tentvr-grass-01.jpg">
+            <img id="default" rotation="0 -210 0" crossorigin="anonymous" src="/webvr-5/360/tentvr-grass-01.jpg">
     
              
 <!--            shadow-->
@@ -110,7 +112,7 @@
         <!--     Tent 1-->
         <a-entity position="0 -.20 3" rotation="0 120 0" color="" scale=".01 .01 .01" roughness="1" metalness="1" obj-model="obj: #ktent-obj; mtl: #ktent-mtl"></a-entity>
         <a-entity position="0.5 -.20 -6" rotation="0 310 0" color="" scale="2 2 2" roughness="1" metalness="1" obj-model="obj: #btent-obj; mtl: #btent-mtl"></a-entity>
- <a-image position="0.5 -.20 -6" rotation="-90 0 0" opacity=".2" color="0,0,0" scale="5 5 8" src="#shadowtex"></a-image>
+        <a-image position="0.5 -.20 -6" rotation="-90 0 0" opacity=".2" color="0,0,0" scale="5 5 8" src="#shadowtex"></a-image>
         
         
       <!-- Camera + cursor. -->
