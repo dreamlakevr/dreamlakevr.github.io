@@ -40,24 +40,56 @@
     <a-scene keyboard-shortcuts="enterVR: false">
         
     
-        
+        <!-- Scene select -->
+        <a-entity position="1.2 1.8 .5" scale=" 1 1 1;" rotation="0 -90 0" >
+            <a-entity position="0 0 0"
+                      text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                            Waar zet jij je tent neer? 
+                          ">
+            </a-entity>
+        </a-entity>
         <!--SCENE 1-->
-        <a-entity position="-.7 1.2 -1"  scale=".3 .3 .3">
+        <a-entity position="1.2 0 .5"  scale=".3 .3 .3">
           
-            <a-sphere template="src: #link" data-src="#s1" data-thumb="#s1" src="#s1" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
+            <a-sphere template="src: #link" data-src="#s1" data-thumb="#s1" src="#s1" position=".0 5 0"  rotation="0 0 0" scale=".3 .3 .3">
                 <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"> </a-animation>
             </a-sphere>
-            <a-image position=".35 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="1 1 1" src="#shadowtex"></a-image>
+            <a-entity position="0 4.5 .8" rotation="0 -90 0"
+                      text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                          In de sneeuw.
+                          ">
+            </a-entity>
+            <a-image position="0 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="2 2 2" src="#shadowtex"></a-image>
         </a-entity>
      
         <!--SCENE 2-->
-        <a-entity position=".7 1.2 -1" scale=".3 .3 .3">
+        <a-entity position="1.3 0 0" scale=".3 .3 .3">
        
-            <a-sphere metalness="0.1" roughness="0.3" template="src: #link" data-src="#s2" data-thumb="#s2" src="#s2" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
+            <a-sphere metalness="0.1" roughness="0.3" template="src: #link" data-src="#s2" data-thumb="#s2" src="#s2" position="0 5 0"  rotation="0 0 0" scale=".3 .3 .3">
                 <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
             </a-sphere>
-             <a-image position=".35 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="1 1 1" src="#shadowtex"></a-image>
+            <a-entity position="0 4.5 .8" rotation="0 -90 0"
+                      text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                          In de woenstijn.
+                          ">
+            </a-entity>
+            <a-image position="0 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="2 2 2" src="#shadowtex"></a-image>
         </a-entity>
+        
+          <!--SCENE 3-->
+        <a-entity position="1.2 0 -.5" scale=".3 .3 .3">
+       
+            <a-sphere metalness="0.1" roughness="0.3" template="src: #link" data-src="#default" data-thumb="#default" src="#default" position="0 5 0"  rotation="0 0 0" scale=".3 .3 .3">
+                <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+            </a-sphere>
+            <a-entity position="0 4.5 .8" rotation="0 -90 0"
+                      text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                          In een bos.
+                          ">
+            </a-entity>wa
+             <a-image position="0 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="2 2 2" src="#shadowtex"></a-image>
+        </a-entity>
+
 
         
         
