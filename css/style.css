@@ -173,3 +173,6 @@ a:active {
   transition: background-color 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
   .button:hover {
     background-color: #2aacaf; }
+.loadinggif {
+    background-image: url(../gif/loading.gif);
+}
