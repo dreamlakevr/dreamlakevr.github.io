@@ -6,6 +6,52 @@ body {
   color: #666;
 }
 
+.loadinggif {
+    position: fixed;
+    top:20%;
+    right:40%;
+    width: 20%;
+    text-align: center;
+  
+}
+.loadinggif img {
+    width: 320px;
+}
+
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    height: 100%;
+    width: 100%;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
 #hero {
   height: 800px;
   overflow: hidden;
@@ -173,6 +219,4 @@ a:active {
   transition: background-color 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
   .button:hover {
     background-color: #2aacaf; }
-.loadinggif {
-    background-image: url(../gif/loading.gif);
-}
+
