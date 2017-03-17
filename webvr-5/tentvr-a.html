@@ -86,16 +86,12 @@
                       text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
                           In een bos.
                           ">
-            </a-entity>wa
+            </a-entity>
              <a-image position="0 0 0" rotation="-90 0 0" opacity=".5" color="0,0,0" scale="2 2 2" src="#shadowtex"></a-image>
         </a-entity>
         
         
-<!--        tent select-->
-        
-        <a-sphere onClick="location.href='porto.html'"  template="src: #link" data-src="#sb" data-thumb="#sb" src="/360/images/porto.png" position=".35 .7 0"  rotation="0 0 0" scale=".3 .3 .3">
-                    <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-                </a-sphere>
+
 
 
         
@@ -148,8 +144,43 @@
         <a-sky id="image-360" rotation="0 -210 0" radius="32" src="#default"></a-sky>
 
         
-        <!--     Tent 1-->
-        <a-entity position="0 -.20 3" rotation="0 120 0" color="" scale=".01 .01 .01" roughness="1" metalness="1" obj-model="obj: #ktent-obj; mtl: #ktent-mtl"></a-entity>
+        <!--        tent select-->
+        <a-entity position=".6 2.6 -1.5" scale=" 1 1 1;" rotation="0 0 0" >
+            <a-entity position="0 0 0"
+                      text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                            Hoe ziet jouw tent eruit?
+                          ">
+            </a-entity>
+            <a-entity position=".6 -.5 0"
+                      text="width: 2.2; lineHeight: 50; letterSpacing: 5; color: white; value: 
+                            Of
+                          ">
+            </a-entity>
+        </a-entity>
+<!--
+        <a-sphere onClick="location.href='/webvr-5/tentvr-b.html'"  template="src: #link" data-src="#s1" data-thumb="#s1" src="" position="0 2.8 -3"  rotation="0 0 0" scale=".3 .3 .3">
+                    <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+                </a-sphere>
+-->
+        
+        <a-entity position="-1 3.4 -6" scale=".8 .8 .8">
+            <a-entity roughness="1" metalness="1" obj-model="obj: #btent-obj; mtl: #btent-mtl"></a-entity>
+            <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+            
+        </a-entity>
+         <a-sphere onClick="location.href='/webvr-5/tentvr-b.html'"  template="src: #link" data-src="#s1" data-thumb="#" color="red" src=""  position="-1 3.20 -6" scale=".2 .2 .2">
+                    <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+                </a-sphere>
+        
+    
+        <a-entity position="1.6 2.80 -6" scale=".005 .005 .005">
+            <a-entity roughness="1" metalness="1" obj-model="obj: #ktent-obj; mtl: #ktent-mtl"> </a-entity>
+            <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+        </a-entity>
+        
+        
+        
+        <!--     Tent Area -->
         <a-entity position="0.5 -.20 -6" rotation="0 310 0" color="" scale="2 2 2" roughness="1" metalness="1" obj-model="obj: #btent-obj; mtl: #btent-mtl"></a-entity>
         <a-image position="0.5 -.20 -6" rotation="-90 0 0" opacity=".2" color="0,0,0" scale="5 5 8" src="#shadowtex"></a-image>
         
