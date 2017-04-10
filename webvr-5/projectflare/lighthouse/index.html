@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <!-- SEO -->
+    <title>MM Guide, laat meer zien, presentatie</title>
+    <meta name="description" content="MM Guide Laat meer zien">
+
+    <script src="../js/aframe-master.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    
+    <script src="components/set-image.js"></script>
+    <script src="/js/components/beacon.js"></script>
+    <script src="/js/components/compEnvironment.js.js"></script>
+
+
+
+
+    <!-- URL CANONICAL -->
+    <link rel="canonical" href="www.mmguide.nl">
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="/static/images/favicons/">
+    <link rel="shortcut icon" sizes="32x32" href="/static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="/static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="/static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="/static/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="/static/images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="/static/images/favicons/favicon-192.png">
+
+  
+
+</head>
+
+<body>
+    <a-scene environment>
+<!--        stats fog="type: exponential; near:1; far:5000; density:.003; color: #fff"-->
+        <a-plane metalness="0" color="#336fa1" height="50000" width="50000" rotation="-90 0 0"></a-plane>
+            <a-box position="0 0 10" beacon></a-box>
+        <a-assets>
+
+            <!-- images-->-->
+            <img id="mmg-logo" src="../images/logo-mmg-slack.jpg">
+
+            <!--Audio-->
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+            
+            <!--lighthouse-->
+            <a-asset-item id="lighthouse-obj" src="/obj/lighthouse.obj"></a-asset-item>
+            <a-asset-item id="lighthouse-mtl" src="/mtl/lighthouse.mtl"></a-asset-item>
+            
+        </a-assets>
+
+        <!-- Dim ambient lighting. -->
+        <a-light type="ambient" color="#fff"></a-light>
+
+      
+        <a-entity type="point" light="color: #fad000; intensity: .1" position="0 10 0"></a-entity>
+        
+        <a-entity beacon="color: red; size: 1"></a-entity>
+        
+<!--
+        <a-entity position="0 10 -50 ">
+            <a-box color="red"  rotation="0 45 45" scale="2 2 2">
+             <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
+             <a-animation attribute="rotation" to="360 360 360" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
+            </a-box>
+        </a-entity>
+-->
+
+        <!--start position-->
+<!--          <a-entity color=" blue" position="0 50 8" rotation="0 -90 0" scale="10 10 10" roughness="1" metalness="1" obj-model="obj: #lighthouse-obj"></a-entity>-->
+
+        <script id="link" type="text/html">
+            <a-entity class="link" 
+                      geometry="primitive: plane; height: 1; width: 1;" 
+                      material="shader: flat; src: ${src}; " 
+                      text="text: ${src}" 
+                      event-set__1="_event: mousedown; scale: 1 1 1; position: 0 0 .5;" 
+                      event-set__2="_event: mouseup; scale: 1 1 1; position: 0 0 .5;" 
+                      event-set__3="_event: mouseenter; scale: 1.2 1.2 1.2; position: 0 0 .5;" 
+                      event-set__4="_event: mouseleave; scale: 1 1 1; position: 0 0 0;" 
+                      sound="on: click; src: #click-sound;">
+            </a-entity>
+        </script>
+
+        <!-- Camera + cursor. -->
+<!--              <a-entity position="0 30 0">-->
+                <a-entity camera="userHeight: 1.8" look-controls wasd-controls>
+                    <a-entity light="type: spot; angle: 45; decay:1; intensity:.3; distance:0; penumbra:.2;"></a-entity>
+                    <a-cursor 
+                              id="cursor" 
+                              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
+                              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
+                              event-set__1="_event: mouseenter; color: springgreen" 
+                              event-set__2="_event: mouseleave; color: black" 
+                              raycaster="objects: .link">
+                    </a-cursor>
+                </a-entity>
+<!--              </a-entity>-->
+
+
+        <a-sky color="#333"></a-sky>
+
+    </a-scene>
+
+
+</body>
+
+</html>
