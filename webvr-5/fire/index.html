@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+   
+    <script src="../js/aframe.min.js"></script>
+    <script src="../js/components/billboard.js"></script>
+    <script src="../js/components/gradient.js"></script>
+    <script src="../js/components/template.min.js"></script>
+    <script src="../js/components/layout.js"></script>
+    <script src="../js/components/eventset.js"></script>
+    <script src="../js/components/animation.js"></script>
+    <script src="../js/components/pivot.js"></script>
+    
+    <script src="../js/components/setimage.js"></script>
+    <script src="../components/update-raycaster.js"></script>
+    
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+           
+             <a-mixin id="h1" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" ></a-mixin>
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        
+            <script id="navItem" type="text/html">
+                <a-plane 
+                    scale= "3 3 3";
+                    class="link" height=".25" width=".25" 
+                    material="shader: flat; color:#333; opacity: .9" 
+                    text="position: 0 0 0; anchor: center; width: .5; height:0.25; align:center; lineHeight: 50; letterSpacing: 5; color: white; wrapCount: 18; value: ${text}" 
+                    event-set__1="_event: mousedown; scale: 3 3 3" 
+                    event-set__2="_event: mouseup; scale: 3.4 3.4 3.4" 
+                    event-set__3="_event: mouseenter; scale:  3.4 3.4 3.4 " 
+                    event-set__4="_event: mouseleave; scale: 3 3 3" 
+                    sound="on: click; src: #click-sound" 
+                    update-raycaster="#cursor"
+                    onClick="${link}"
+                    >
+                </a-plane>
+            </script>
+        </a-assets>
+<!--        <a-gradient-sky material="shader: gradient; topColor: 255 255 255; bottomColor: 51 111 161;"></a-gradient-sky>-->
+         <a-sky radius="100" rotation="0 -88 0" crossorigin="anonymous" src="images/dl-wallpaper-concept.jpg"></a-sky>
+
+        <a-entity position="0 -12 -20" scale=".4 .4 .4" mixin="h1" text="value: VR Fire Escape Drill "></a-entity>
+        <a-entity position="0 -11 -15" scale=".2 .2 .2" mixin="h1" text="value: Proof of concept "></a-entity>
+   
+        
+        <a-plane position="0 5 -25" width="512" height="67" scale=".025 .025 .025" material="transparent:true"  src="images/dl-logo-white.png"></a-plane>
+        <a-plane position="0 -10 -20" width="20" height="2" scale="1 1 1" opacity=".2 .2 .2" material="transparent:true" src="images/white-shadow.png"></a-plane>
+        <a-plane position="0 10 -50" width="50" height="50" scale=".6 .6 .6" material="transparent:true" src="images/white-frame.png"></a-plane>
+        <a-plane position="0 -10 -45" width="55" height="1" scale=".6 .6 .6" opacity=".5 .5 .5" material="transparent:true"  src="images/white-shadow.png"></a-plane>
+        
+        <a-entity pivot="1 0 0" billboard position="-1 -.8 -3" rotation="0 0 0">
+            <a-entity id="navigation" layout="type: line; margin: 1;" >
+                <a-entity template="src: #navItem" data-text="scene1" data-link="location.href='scene1.html'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene2" data-link="location.href='scene2.html'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene3" data-link="location.href='scene3.html'"></a-entity>
+            </a-entity>
+        </a-entity>
+        
+
+        <a-entity camera look-controls wasd-controls>
+            <a-cursor id="cursor" 
+                      animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
+                      animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
+                      event-set__1="_event: mouseenter; color: springgreen" 
+                      event-set__2="_event: mouseleave; color: black" 
+                      raycaster="objects: .link"></a-cursor>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

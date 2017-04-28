@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+   
+    <script src="../js/aframe.min.js"></script>
+    <script src="../js/components/billboard.js"></script>
+    <script src="../js/components/gradient.js"></script>
+    <script src="../js/components/template.min.js"></script>
+    <script src="../js/components/layout.js"></script>
+    <script src="../js/components/eventset.js"></script>
+    <script src="../js/components/animation.js"></script>
+    <script src="../js/components/pivot.js"></script>
+    
+    <script src="../js/components/setimage.js"></script>
+    <script src="../components/update-raycaster.js"></script>
+    
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+           
+              <a-mixin id="h1" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" ></a-mixin>
+             <a-mixin id="h2" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: black;" ></a-mixin>
+            
+            
+             <a-mixin id="objectTitle" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" scale=".3 .3 .3"  position="0 2 0" ></a-mixin>
+             <a-mixin id="objectTitleHover" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: black;" scale=".4 .4 .4"  position="0 2 0" ></a-mixin>
+            
+            
+            <a-mixin id="infoPlane" billboard geometry="primitive:plane" height="4" width="4"transparent="true" scale= "40 40 1" position=" 0 0 -1" material="shader: flat" visible="false"></a-mixin>
+            <a-mixin id="infoSphere" billboard geometry="primitive:sphere" radius="1" transparent="true" scale= "1 1 1" position=" 0 0 0" material="shader: flat" rotation="0 0 0"
+                                  update-raycaster="#cursor"> 
+               
+            </a-mixin>
+                
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        
+            <script id="navItem" type="text/html">
+                <a-plane 
+                    scale= "3 3 3";
+                    class="link"
+                    height=".25" width=".25" 
+                    material="shader: flat; color:#333; opacity: .9" 
+                    text="position: 0 0 0; anchor: center; width: .5; height:0.25; align:center; lineHeight: 50; letterSpacing: 5; color: white; wrapCount: 18; value: ${text}" 
+                    event-set__1="_event: mousedown; scale: 3 3 3" 
+                    event-set__2="_event: mouseup; scale: 3.4 3.4 3.4" 
+                    event-set__3="_event: mouseenter; scale:  3.4 3.4 3.4 " 
+                    event-set__4="_event: mouseleave; scale: 3 3 3" 
+                    sound="on: click; src: #click-sound" 
+                    update-raycaster="#cursor"
+                         onClick="${link}"
+                    >
+                </a-plane>
+            </script>
+            
+             
+            <script id="infoPoint" type="text/html" >
+                <a-entity position="${point}">
+                    <a-entity 
+                              class="link"
+                              mixin="infoSphere"
+                              material="src:${icon};" 
+                              animation="property: rotation; startEvents:  from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
+                     
+                              event-set__1="_event: mouseenter; material.src:${img}; mixin:infoPlane; visible:${viewable}"
+                              event-set__2="_event: mouseleave; material.src:${icon}; mixin:infoSphere;  visible:${viewable}"
+                              sound="on: click; src: #click-sound" 
+                              >
+                </a-entity>
+                    <a-text 
+                              mixin="objectTitle"  
+                              class="link"
+                              text="value: ${ title }" 
+                              event-set__1="_event: mouseenter; mixin:h2;"
+                              event-set__2="_event: mouseleave; mixin:h1;">
+                </a-text>
+            </script>
+
+        </a-assets>
+
+        <a-entity template="src: #infoPoint" data-point="5 -3 -30"data-title="Brandalarm" data-info="\n Lorem ipsum" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        
+        <a-entity template="src: #infoPoint" data-point="5 -8 -30" data-title="Brandslang" data-info="\n test imfasodfsad 1" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        
+        <a-entity template="src: #infoPoint" data-point="2 2 53" data-title="Nooduitgang" data-info=" \n asdfasdf dsa2" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        
+        
+         <a-sky radius="100" rotation="0 -23 0" crossorigin="anonymous" src="../fire/images/fireinstruction-2.jpg"></a-sky>
+
+        <a-entity position="0 -20 -14.5" scale=".4 .4 .4" mixin="h1" text="value: VR Fire Escape Drill "></a-entity>
+        <a-entity position="0 -20 -12" scale=".2 .2 .2" mixin="h1" text="value: Proof of concept "></a-entity>
+   
+        
+        <a-entity pivot="1 0 0" billboard position="-1 -1.8 -2" rotation="0 0 0">
+            <a-entity id="navigation" layout="type: line; margin: 1;" >
+                <a-entity template="src: #navItem" data-text="scene1" data-link="location.href='scene1.html'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene2" data-link="location.href='scene2.html'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene3" data-link="location.href='scene3.html'"></a-entity>
+            </a-entity>
+        </a-entity>
+         <a-entity pivot="0 0 0" billboard position="0 -5 -2" rotation="0 0 0" template="src: #navItem" data-text="Home" data-link="location.href='index.html'"></a-entity>
+
+        <a-entity camera look-controls wasd-controls>
+            <a-cursor id="cursor" 
+                      animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
+                      animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
+                      event-set__1="_event: mouseenter; color: springgreen" 
+                      event-set__2="_event: mouseleave; color: black" 
+                      raycaster="objects: .link"></a-cursor>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
