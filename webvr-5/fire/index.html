@@ -17,9 +17,16 @@
     <script src="../js/components/setimage.js"></script>
     <script src="../components/update-raycaster.js"></script>
     
+    <script>
+        function openGearVR() {
+            alert("Page is loaded"); 
+            location.href=' href="ovrweb:https://dreamlakevr.github.io/webvr-5/fire/index.html"';
+        }
+        </script>
+    
 </head>
 
-<body>
+<body onload="openGearVR()">
     <a-scene>
         <a-assets>
            
@@ -43,7 +50,6 @@
                 </a-plane>
             </script>
         </a-assets>
-<!--        <a-gradient-sky material="shader: gradient; topColor: 255 255 255; bottomColor: 51 111 161;"></a-gradient-sky>-->
          <a-sky radius="100" rotation="0 -88 0" crossorigin="anonymous" src="images/dl-wallpaper-concept.jpg"></a-sky>
 
         <a-entity position="0 -12 -20" scale=".4 .4 .4" mixin="h1" text="value: VR Fire Escape Drill "></a-entity>
