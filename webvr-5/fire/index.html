@@ -13,68 +13,24 @@
     <script src="../js/components/eventset.js"></script>
     <script src="../js/components/animation.js"></script>
     <script src="../js/components/pivot.js"></script>
-    
     <script src="../js/components/setimage.js"></script>
     <script src="../components/update-raycaster.js"></script>
     
-    <script src="../components/mobile-detect.js"></script>
-    <script src="../components/mobiletest.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-     <script src="//cdn.jsdelivr.net/mobile-detect.js/latest/mobile-detect.min.js"></script>
+    
     <script>
-//        function openGearVR() {
-//            alert("Page is loaded"); 
+        function openGearVR() {
+            alert("Page is loaded"); 
 //            window.location.href=' href="ovrweb:https://dreamlakevr.github.io/webvr-5/fire/index.html"';
-//        }
-        
-        
-    var md = new MobileDetect(window.navigator.userAgent);
-
-            console.log( md.mobile() );          // 'Sony'
-            console.log( md.phone() );           // 'Sony'
-            console.log( md.tablet() );          // null
-            console.log( md.userAgent() );       // 'Safari'
-            console.log( md.os() );              // 'AndroidOS'
-            alert( md.os("I'm Android" );              // 'AndroidOS'
-            console.log( md.is('iPhone') );      // false
-            alert( md.is("I'm Android" );     
-            console.log( md.is('bot') );         // false
-            console.log( md.version('Webkit') );         // 534.3
-            alert( md.version("I'm Chfrome" );   
-            console.log( md.versionStr('Build') );       // '4.1.A.0.562'
-            console.log( md.match('playstation|xbox') ); // false
-        
+        }
     </script>
     
 </head>
 
 <body onload="openGearVR()">
     <a href="https://dreamlakevr.github.io/webvr-5/fire/index.html"> test</a>
-     <h1>Mobile-Detect Check</h1>
-<p>
-    This is a small demo to check how <a href="http://hgoebl.github.io/mobile-detect.js/">mobile-detect.js</a>
-    behaves with your mobile browser. You can change the User-Agent to a complete other one so you can see
-    how that browser would be detected. Keep in mind that in case of doubt (phone or tablet) the smaller side
-    of the screen will be used to distinguish both device classes.
-</p>
-<h2>Input</h2>
-<label for="userAgent">User-Agent:</label>
-<input id="userAgent" type="text" ng-model="vm.input.userAgent">
-<label for="maxPhoneWidth">maxPhoneWidth (-1 to disable)</label>
-<input id="maxPhoneWidth" type="number" ng-model="vm.input.maxPhoneWidth">
-<h2>Result:</h2>
-<dl>
-    <dt ng-repeat-start="item in vm.outcome">
-        {{item.key}}
-    </dt>
-    <dd ng-repeat-end>
-        {{item.val || '-'}}
-    </dd>
-</dl>
     <a-scene>
         <a-assets>
-           
-             <a-mixin id="h1" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" ></a-mixin>
+           <a-mixin id="h1" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" ></a-mixin>
             <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         
             <script id="navItem" type="text/html">
