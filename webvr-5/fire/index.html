@@ -18,7 +18,9 @@
     <script src="../components/update-raycaster.js"></script>
     
     <script src="../components/mobile-detect.js"></script>
-    
+    <script src="../components/mobiletest.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+     <script src="//cdn.jsdelivr.net/mobile-detect.js/latest/mobile-detect.min.js"></script>
     <script>
 //        function openGearVR() {
 //            alert("Page is loaded"); 
@@ -48,33 +50,27 @@
 
 <body onload="openGearVR()">
     <a href="https://dreamlakevr.github.io/webvr-5/fire/index.html"> test</a>
-     <div class=demo>
-            <h1><a href="http://hgoebl.github.io/mobile-detect.js/">Mobile-detect.js</a></h1>
-            <ul class=info>
-                <li class=version>v0.2.0</li>
-                <!-- <li class="date"></li> -->
-            </ul>
-            <div class=desktop-alert style=display:none>You are on a <span class=yellow>desktop</span> browser. Mobile-Detect is mainly meant for mobile device detection. <a class=button href=#>OK, still show me the results</a></div>
-            <div class=content style=display:none>
-                <div class=mobile><span class=function>mobile</span>()<span class="less equal">=</span><span class=value></span></div>
-                <div class=phone><span class=less>├─</span> <span class=function>phone</span>()<span class="less equal">=</span><span class=value></span></div>
-                <div class=tablet><span class=less>└─</span> <span class=function>tablet</span>()<span class="less equal">=</span><span class=value></span></div>
-                <div class=mobile-grade><span class=function>mobileGrade</span>()<span class="less equal">=</span><span class=value></span></div>
-                <div class=os><span class=function>os</span>()<span class="less equal">=</span><span class=value></span></div>
-                <div class=user-agent><span class=function>userAgent</span>()<span class="less equal">=</span><span class=value></span></div>
-                <div class=spacer></div>
-                <div id=keys></div>
-                <div class=spacer></div>
-                <div id=versions></div>
-            </div>
-        </div>
-        <ul class=legend style=display:none>
-            <li class="orange cf"><span class=square></span> <span class=label>result is String</span></li>
-            <li class="purple cf"><span class=square></span> <span class=label>result is Boolean</span></li>
-            <li class="red cf"><span class=square></span> <span class=label>result is Number</span></li>
-        </ul>
-        <script src=scripts/6bbdd4c1.vendor.js></script>
-        <script src=scripts/835bd415.main.js></script>
+     <h1>Mobile-Detect Check</h1>
+<p>
+    This is a small demo to check how <a href="http://hgoebl.github.io/mobile-detect.js/">mobile-detect.js</a>
+    behaves with your mobile browser. You can change the User-Agent to a complete other one so you can see
+    how that browser would be detected. Keep in mind that in case of doubt (phone or tablet) the smaller side
+    of the screen will be used to distinguish both device classes.
+</p>
+<h2>Input</h2>
+<label for="userAgent">User-Agent:</label>
+<input id="userAgent" type="text" ng-model="vm.input.userAgent">
+<label for="maxPhoneWidth">maxPhoneWidth (-1 to disable)</label>
+<input id="maxPhoneWidth" type="number" ng-model="vm.input.maxPhoneWidth">
+<h2>Result:</h2>
+<dl>
+    <dt ng-repeat-start="item in vm.outcome">
+        {{item.key}}
+    </dt>
+    <dd ng-repeat-end>
+        {{item.val || '-'}}
+    </dd>
+</dl>
     <a-scene>
         <a-assets>
            
