@@ -17,14 +17,12 @@
     <script src="../js/components/setimage.js"></script>
     <script src="../components/update-raycaster.js"></script>
     
-<!--
     <script>
         function openGearVR() {
-            window.open("ovrweb:https://dreamlakevr.github.io/webvr-5/fire/index.html","_self" );
+            window.open("ovrweb:https://dreamlakevr.github.io/webvr-5/fire/scene3.html","_self" );
          
         }
     </script>
--->
     
 </head>
 
@@ -107,15 +105,15 @@
    
         <a-entity pivot="1 0 0" billboard position="-1 -1.8 -2" rotation="0 0 0">
             <a-entity id="navigation" layout="type: line; margin: 1;" >
-                <a-entity template="src: #navItem" data-text="scene1" data-link="location.href='ovrweb:https://dreamlakevr.github.io/webvr-5/fire/scene1.html','_self'"></a-entity>
-                <a-entity template="src: #navItem" data-text="scene2" data-link="location.href='ovrweb:https://dreamlakevr.github.io/webvr-5/fire/scene2.html','_self'"></a-entity>
-                <a-entity template="src: #navItem" data-text="scene3" data-link="location.href='ovrweb:https://dreamlakevr.github.io/webvr-5/fire/scene3.html','_self'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene1" data-link="location.href='scene1.html'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene2" data-link="location.href='scene2.html'"></a-entity>
+                <a-entity template="src: #navItem" data-text="scene3" data-link="location.href='scene3.html'"></a-entity>
             </a-entity>
         </a-entity>
        
         <a-entity pivot="0 0 0" billboard position="0 -5 -2" rotation="0 0 0" template="src: #navItem" data-text="Home" data-link="location.href='index.html'"></a-entity>
         
-        <a-entity  rotation="0 180 0" camera look-controls wasd-controls>
+        <a-entity  rotation="0 0 0" camera look-controls wasd-controls>
             <a-cursor id="cursor" 
                       animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
                       animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
