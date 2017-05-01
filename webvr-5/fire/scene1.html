@@ -66,26 +66,30 @@
             
              
             <script id="infoPoint" type="text/html" >
+
                 <a-entity position="${point}">
-                    <a-entity 
-                              class="link"
-                              mixin="infoSphere"
-                              material="src:${icon};" 
-                              animation="property: rotation; startEvents:  from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
-                     
-                              event-set__1="_event: mouseenter; material.src:${img}; mixin:infoPlane; visible:${viewable}"
-                              event-set__2="_event: mouseleave; material.src:${icon}; mixin:infoSphere;  visible:${viewable}"
-                              sound="on: click; src: #click-sound" 
-                              >
-                </a-entity>
+                    
                     <a-text 
                               mixin="objectTitle"  
                               class="link"
                               text="value: ${ title }" 
-                              event-set__1="_event: mouseenter; mixin:h2;"
-                              event-set__2="_event: mouseleave; mixin:h1;">
-                </a-text>
-            </script>
+                              event-set__1="_event: mouseenter; mixin:objectTitleHover; value: ${ title + info }" 
+                              event-set__2="_event: mouseleave; mixin:objectTitle; value: ${ title }" >
+                    </a-text>
+                    <a-entity position="0 -.5 0">
+                        <a-entity  class="link"
+                                    mixin="infoSphere"
+                                    material="src:${icon};" > 
+                        </a-entity>
+                         <a-animation attribute="rotation"
+                                      dur="5000"
+                                      fill="forwards"
+                                      to="0 360 0"
+                                      easing="linear"
+                                      repeat="indefinite"></a-animation>
+                       
+                    </a-entity>
+            </script> 
 
         </a-assets>
         

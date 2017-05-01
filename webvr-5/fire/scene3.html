@@ -31,15 +31,29 @@
         <a-assets>
            
              <a-mixin id="h1" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" ></a-mixin>
-             <a-mixin id="h2" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: black;" ></a-mixin>
+             <a-mixin id="h2" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5;  color: black;" ></a-mixin>
             
             
-             <a-mixin id="objectTitle" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" scale=".3 .3 .3"  position="0 2 0" ></a-mixin>
-             <a-mixin id="objectTitleHover" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: black;" scale=".4 .4 .4"  position="0 2 0" ></a-mixin>
+             <a-mixin id="objectTitle" billboard  
+                      text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" 
+                      scale=".3 .3 .3"  
+                      position="0 2 0" 
+                      >
+            </a-mixin>
+             <a-mixin id="objectTitleHover" billboard  
+                      text="width: 100; align:center; lineHeight: 50; height: 100; letterSpacing: 50; color: #333;" 
+                      scale=".4 .4 .4"  
+                      position="0 2 0" 
+                      >
+            </a-mixin>
             
             
-            <a-mixin id="infoPlane" billboard geometry="primitive:plane" height="4" width="4"transparent="true" scale= "40 40 1" position=" 0 0 -1" material="shader: flat" visible="false"></a-mixin>
-            <a-mixin id="infoSphere" billboard geometry="primitive:sphere" radius="1" transparent="true" scale= "1 1 1" position=" 0 0 0" material="shader: flat" rotation="0 0 0"
+            <a-mixin id="infoPlane" billboard geometry="primitive:plane" height="2" width="4"transparent="true" scale= "35 35 1" position=" 0 0 -1" material="shader: flat" visible="false"></a-mixin>
+            <a-mixin id="infoSphere" geometry="primitive:sphere" radius="1" transparent="true" scale= "1 1 1" position=" 0 0 0" material="shader: flat" rotation="0 0 0"
+                                  update-raycaster="#cursor"> 
+               
+            </a-mixin>
+            <a-mixin id="zoomInfo" geometry="primitive:sphere" radius="1" transparent="true" scale= "1 1 1" position=" 0 0 0" material="shader: flat" rotation="0 0 0"
                                   update-raycaster="#cursor"> 
                
             </a-mixin>
@@ -64,38 +78,76 @@
                 </a-plane>
             </script>
             
-             
             <script id="infoPoint" type="text/html" >
+
                 <a-entity position="${point}">
-                    <a-entity 
-                              class="link"
-                              mixin="infoSphere"
-                              material="src:${icon};" 
-                              animation="property: rotation; startEvents:  from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
-                     
-                              event-set__1="_event: mouseenter; material.src:${img}; mixin:infoPlane; visible:${viewable}"
-                              event-set__2="_event: mouseleave; material.src:${icon}; mixin:infoSphere;  visible:${viewable}"
-                              sound="on: click; src: #click-sound" 
-                              >
-                </a-entity>
+                    
                     <a-text 
                               mixin="objectTitle"  
                               class="link"
                               text="value: ${ title }" 
-                              event-set__1="_event: mouseenter; mixin:h2;"
-                              event-set__2="_event: mouseleave; mixin:h1;">
-                </a-text>
+                              event-set__1="_event: mouseenter; mixin:objectTitleHover; value: ${ title + info }" 
+                              event-set__2="_event: mouseleave; mixin:objectTitle; value: ${ title }" >
+                    </a-text>
+                    <a-entity position="0 -.5 0">
+                        <a-entity  class="link"
+                                    mixin="infoSphere"
+                                    material="src:${icon};" > 
+                        </a-entity>
+                         <a-animation attribute="rotation"
+                                      dur="5000"
+                                      fill="forwards"
+                                      to="0 360 0"
+                                      easing="linear"
+                                      repeat="indefinite"></a-animation>
+                       
+                    </a-entity>
+            </script>   
+            
+            <script id="zoomPoint" type="text/html" >
+                <a-entity position="${point}">
+                    
+                    <a-text 
+                              mixin="objectTitle"  
+                              class="link"
+                              text="value: ${ title }" 
+                              event-set__1="_event: mouseenter; mixin:objectTitleHover; value: ${ title + info }" 
+                              event-set__2="_event: mouseleave; mixin:objectTitle; value: ${ title }" >
+                    </a-text>
+                    <a-entity position="0 -1 0">
+                         <a-entity 
+                                   billboard
+                                    class="link"
+                                    mixin="zoomInfo"
+                                    material="src:${icon};" 
+                                    transparent="true"
+                                    event-set__1="_event: mouseenter; material.src:${img}; mixin:infoPlane; visible:${viewable}"
+                                    event-set__2="_event: mouseleave; material.src:${icon}; mixin:infoZoom; visible:true"
+                                    sound="on: click; src: #click-sound" 
+                                > 
+                        </a-entity>
+                         
+                        
+                    
+                    
+                    </a-entity>
             </script>
-
+            
+           
+            
         </a-assets>
 
-        <a-entity template="src: #infoPoint" data-point="-13 0 25" data-title="Vluchtroute" data-info="ipsum" data-img="../fire/images/escaperoute.png" data-icon="../fire/images/inc-info.jpg" data-viewable="true"></a-entity>
+       
         
-        <a-entity template="src: #infoPoint" data-point="30 -8 23" data-title="Brandalarm" data-info="\n Lorem ipsum" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        <a-entity template="src: #zoomPoint" data-point="-13 0 25" data-title="Vluchtroute" data-info="\n zoek hier de dichtsbijzijnde uitgang." data-img="../fire/images/escaperoute.png" data-icon="../fire/images/inc-zoom.jpg"  data-viewable="true"></a-entity>
         
-        <a-entity template="src: #infoPoint" data-point="35 -32 23" data-title="Brandslang" data-info="\n test imfasodfsad 1" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+            <a-entity template="src: #infoPoint" data-point="30 -8 23" data-title="Brandalarm" data-info="" data-img="../fire/images/escaperoute.png" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
         
-        <a-entity template="src: #infoPoint" data-point="2 2 33" data-title="Nooduitgang" data-info=" \n asdfasdf dsa2" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+            <a-entity template="src: #infoPoint" data-point="35 -32 23" data-title="Brandslang" data-info="\n meer info" data-img="../fire/images/escaperoute.png" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        
+            <a-entity template="src: #infoPoint" data-point="3 2.5 30" data-title="Nooduitgang" data-info="\n meer info" data-img="../fire/images/escaperoute.png" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        
+        
         
         
         <a-sky radius="100" rotation="0 -203 0" crossorigin="anonymous" src="../fire/images/fireinstruction-3.jpg"></a-sky>
@@ -113,7 +165,7 @@
        
         <a-entity pivot="0 0 0" billboard position="0 -5 -2" rotation="0 0 0" template="src: #navItem" data-text="Home" data-link="location.href='index.html'"></a-entity>
         
-        <a-entity  rotation="0 0 0" camera look-controls wasd-controls>
+        <a-entity  rotation="0 180 0" camera look-controls wasd-controls>
             <a-cursor id="cursor" 
                       animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
                       animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
