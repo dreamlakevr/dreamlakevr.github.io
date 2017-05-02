@@ -43,8 +43,9 @@
                                   update-raycaster="#cursor"> 
                
             </a-mixin>
-                
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+            
+            <audio id="click-sound" crossorigin="anonymous" src="/fire/audio/click.ogg"></audio>
+            <audio id="firealarm" crossorigin="anonymous" src="/fire/audio/firealarm.ogg"></audio>
         
             <script id="navItem" type="text/html">
                 <a-plane 
@@ -65,7 +66,7 @@
             </script>
             
              
-            <script id="infoPoint" type="text/html" >
+          <script id="infoPoint" type="text/html" >
 
                 <a-entity position="${point}">
                     
@@ -89,15 +90,18 @@
                                       repeat="indefinite"></a-animation>
                        
                     </a-entity>
-            </script> 
-
+            </script>   
         </a-assets>
+        
+        
+         <audio src="/fire/audio/firealarm.ogg" autoplay></audio>
 
-        <a-entity template="src: #infoPoint" data-point="5 -3 -30"data-title="Brandalarm" data-info="\n Lorem ipsum" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        <a-entity template="src: #infoPoint" data-point="5 -3 -30"data-title="Brandalarm" data-info="" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
         
-        <a-entity template="src: #infoPoint" data-point="5 -8 -30" data-title="Brandslang" data-info="\n test imfasodfsad 1" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        <a-entity template="src: #infoPoint" data-point="5 -8 -30" data-title="Brandslang" data-info="" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
         
-        <a-entity template="src: #infoPoint" data-point="2 2 53" data-title="Nooduitgang" data-info=" \n asdfasdf dsa2" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        <a-entity template="src: #infoPoint" data-point="2 2 53" data-title="Nooduitgang" data-info="" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        
         
         
          <a-sky radius="100" rotation="0 -23 0" crossorigin="anonymous" src="../fire/images/fireinstruction-2.jpg"></a-sky>

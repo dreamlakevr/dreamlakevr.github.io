@@ -31,8 +31,10 @@
     <a-scene>
         <a-assets>
            <a-mixin id="h1" billboard  text="width: 100; align:center; lineHeight: 5; letterSpacing: 5; color: white;" ></a-mixin>
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        
+            
+            <audio id="click-sound" crossorigin="anonymous" src="/fire/audio/click.ogg"></audio>
+            <audio id="firealarm" crossorigin="anonymous" src="/fire/audio/firealarm.ogg"></audio>
+            
             <script id="navItem" type="text/html">
                 <a-plane 
                     scale= "3 3 3";
@@ -50,6 +52,8 @@
                 </a-plane>
             </script>
         </a-assets>
+        
+         <audio src="/fire/audio/lake.ogg" autoplay></audio>
          <a-sky radius="100" rotation="0 -88 0" crossorigin="anonymous" src="images/dl-wallpaper-concept.jpg"></a-sky>
 
         <a-entity position="0 -12 -20" scale=".4 .4 .4" mixin="h1" text="value: VR Fire Escape Drill "></a-entity>

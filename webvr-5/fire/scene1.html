@@ -44,7 +44,7 @@
                
             </a-mixin>
                 
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+            <audio id="click-sound" crossorigin="anonymous" src="/fire/audio/click.ogg"></audio>
         
             <script id="navItem" type="text/html">
                 <a-plane 
@@ -89,17 +89,19 @@
                                       repeat="indefinite"></a-animation>
                        
                     </a-entity>
-            </script> 
+            </script>   
 
         </a-assets>
         
-        <a-entity template="src: #infoPoint" data-point="-12 -8 -30" data-title="Brandblusser" data-info="\n test imfasodfsad 1" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
         
-        <a-entity template="src: #infoPoint" data-point="5 3 -30" data-title="Nooduitgang" data-info=" \n asdfasdf dsa2" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
-        <a-entity template="src: #infoPoint" data-point="30 5 10" data-title="Nooduitgang" data-info=" \n asdfasdf dsa2" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+         <audio src="/fire/audio/firealarm.ogg" autoplay></audio>
+        
+        <a-entity template="src: #infoPoint" data-point="-12 -8 -30" data-title="Brandblusser" data-info="" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        <a-entity template="src: #infoPoint" data-point="5 3 -30" data-title="Nooduitgang" data-info="" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
+        <a-entity template="src: #infoPoint" data-point="30 5 10" data-title="Nooduitgang" data-info="" data-img="../fire/images/white.jpg" data-icon="../fire/images/inc-info.jpg" data-viewable="false"></a-entity>
         
         
-         <a-sky radius="100" rotation="-1 -93 0" crossorigin="anonymous" src="../fire/images/fireinstruction-1.jpg"></a-sky>
+        <a-sky radius="100" rotation="-1 -93 0" crossorigin="anonymous" src="../fire/images/fireinstruction-1.jpg"></a-sky>
 
         <a-entity position="0 -20 -14.5" scale=".4 .4 .4" mixin="h1" text="value: VR Fire Escape Drill "></a-entity>
         <a-entity position="0 -20 -12" scale=".2 .2 .2" mixin="h1" text="value: Proof of concept "></a-entity>
